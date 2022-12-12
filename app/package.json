@@ -1,0 +1,23 @@
+{
+  "name": "wo_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nodeapp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yevgeniis/wo.git#main"
+  },
+  "author": "YevgeniiS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yevgeniis/wo/issues"
+  },
+  "homepage": "https://github.com/Yevgeniis/wo/tree/main#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0"
+  }
+}
