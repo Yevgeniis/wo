@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wo-app-deployment
+  labels:
+    app: wo_app
+spec:
+  selector:
+    matchLabels:
+      project: wo_app-prod
+  template:
+    metadata:
+      labels:
+        project: wo_app-prod
+    spec:
+      containers:
+        - name  : wo-app-node
+          image : yevgeniis/wo_app:1.0.0
+          ports :
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: "250m"
+          env:
+            - name: MONGODB-ADDRESS
+              value: localhost
+
+        - name  : mongodb
+          image : mongo
+          ports :
+            - containerPort: 27017
