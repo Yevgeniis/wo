@@ -10,13 +10,13 @@ app.use(express.urlencoded({ extended: false }));
 // Connect to MongoDB
 mongoose
   .connect(
-    `mongodb://${MONGODB-ADDRESS}:27017/docker-node-mongo`,
+    `mongodb://${process.env.MONGODB_ADDRESS}:27017/docker-node-mongo`,
     { useNewUrlParser: true }
   )
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
-const Item = require('./models/item');
+const Item = require('./models/item').default;
 
 app.get('/', (req, res) => {
   Item.find()
