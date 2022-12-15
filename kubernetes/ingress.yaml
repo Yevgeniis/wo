@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-wo-app
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "*.xarfa.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: wo-app-service
+            port:
+              number: 80
+  
+
