@@ -1,14 +1,14 @@
 # create VPC
-resource "google_compute_network" "wo-app-vpc" {
-  name                    = "wo-app-vpc"
+resource "google_compute_network" "vpc" {
+  name                    = "${var.app_name}-${var.environment}-vpc"
   auto_create_subnetworks = "false"
   routing_mode            = "GLOBAL"
 }
 
 # create public subnet
-resource "google_compute_subnetwork" "wo-app-subnet" {
-  name          = "wo-app-subnet"
+resource "google_compute_subnetwork" "subnet" {
+  name          = "${var.app_name}-${var.environment}-subnet"
   ip_cidr_range = var.network-subnet-cidr
-  network       = google_compute_network.wo-app-vpc.name
+  network       = google_compute_network.vpc.name
   region        = var.gcp_region
 }

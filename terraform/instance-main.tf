@@ -1,14 +1,18 @@
 
 
 #create instance
-resource "google_compute_instance" "mongodb-vm-1" {
-  name = "mongodb-vm-1"
+resource "google_compute_instance" "vm_instance" {
+  name = "${var.app_name}-vm-1-${var.environment}"
   machine_type = var.instance_type
   zone = var.gcp_zone_a
-  hostname = "mongodb-vm-1.local"
+  hostname = "${var.app_name}-vm-1"
   tags = ["ssh","http","icmp"]
   allow_stopping_for_update = true
   
+  labels = {
+    "env" = "${var.environment}"
+  }
+
   boot_disk {
     initialize_params {
       image = var.instance_image
@@ -19,15 +23,14 @@ resource "google_compute_instance" "mongodb-vm-1" {
   metadata_startup_script = data.template_file.linux-install-apache2.rendered
 
   network_interface {
-    network = google_compute_network.wo-app-vpc.name
-    subnetwork = google_compute_subnetwork.wo-app-subnet.name
+    network = google_compute_network.vpc.name
+    subnetwork = google_compute_subnetwork.subnet.name
     access_config {
       
     }
   }
 
 }
-
 
 
 # Bootstrapping Script to Install Apache
