@@ -2,13 +2,13 @@
 
 #create instance
 resource "google_compute_instance" "vm_instance" {
-  name = "${var.app_name}-vm-1-${var.environment}"
+  count = var.instance_number_vm
+  name = "${var.app_name}-vm-${count.index}-${var.environment}"
   machine_type = var.instance_type
   zone = var.gcp_zone_a
-  hostname = "${var.app_name}-vm-1"
+  hostname = "${var.app_name}-vm-${count.index}.${var.domain}"
   tags = ["ssh","http","icmp"]
   allow_stopping_for_update = true
-  
   labels = {
     "env" = "${var.environment}"
   }

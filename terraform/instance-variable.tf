@@ -11,6 +11,11 @@ variable "instance_image" {
   
 }
 
+#define instance number
+variable "instance_number_vm" {
+    type = string
+    description = "How many vm's will be create"
+}
 
 
 

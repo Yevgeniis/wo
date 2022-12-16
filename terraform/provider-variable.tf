@@ -33,3 +33,8 @@ variable "environment" {
   description = "Environment dev,prod,test"
 
 }
+
+variable "domain" {
+  type = string
+  description = "domain"  
+}
