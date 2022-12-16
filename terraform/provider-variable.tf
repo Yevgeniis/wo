@@ -36,5 +36,5 @@ variable "environment" {
 
 variable "domain" {
   type = string
-  desdescription = "domain"  
+  description = "domain"  
 }
