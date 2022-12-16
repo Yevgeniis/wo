@@ -8,7 +8,7 @@ variable "gcp_auth_file" {
 variable "gcp_region" {
   type        = string
   description = "GCP region me-west-1"
-  default = "me-west1"
+  default = "europe-west1"
 }
 
 # define GCP project name
@@ -21,6 +21,6 @@ variable "gcp_project" {
 # define GCP zone name
 variable "gcp_zone_a" {
   type        = string
-  description = "GCP zone me-west1-a"
-  default = "me-west1-a"
+  description = "GCP zone europe-west1-b"
+  default = "europe-west1-b"
 }
