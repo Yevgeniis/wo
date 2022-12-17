@@ -22,6 +22,7 @@ spec:
           resources:
             requests:
               cpu: "250m"
+              memory: "512Mi"
           env:
             - name: MONGODB_ADDRESS
               value: localhost
