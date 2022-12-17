@@ -1,12 +1,12 @@
 #application definition
-app_name    = "wo-app"
-environment = "dev" # Dev, Test, Prod, etc
+app_name    = "wo-app-2"
+environment = "test" # Dev, Test, Prod, etc
 domain = "xarfa.local"
 
 #GCP Settings
 gcp_project   = "wo-app-371801"
 gcp_region    = "europe-west1"
-gcp_zone_a = "europe-west1-b"
+gcp_zone_a = "europe-west1-c"
 gcp_auth_file = "keys.json"
 
 #GCP Network
