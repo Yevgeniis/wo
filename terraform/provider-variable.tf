@@ -21,19 +21,21 @@ variable "gcp_zone_a" {
   description = "GCP zone"
 }
 
-
+#define application name
 variable "app_name" {
   type = string
   description = "Application name"
   
 }
 
+#define environment variable for labels
 variable "environment" {
   type = string
   description = "Environment dev,prod,test"
 
 }
 
+#define domain name
 variable "domain" {
   type = string
   description = "domain"  
