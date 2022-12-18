@@ -18,7 +18,7 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
 
-  metadata_startup_script = data.template_file.linux-install-apache2.rendered
+  metadata_startup_script = data.template_file.install_mongodb.rendered
 
   network_interface {
     network = google_compute_network.vpc.name
@@ -31,13 +31,9 @@ resource "google_compute_instance" "vm_instance" {
 }
 
 
-# Bootstrapping Script to Install Apache
-data "template_file" "linux-install-apache2" {
+# Bootstrapping Script to mongodb
+data "template_file" "install_mongodb" {
 template = <<EOF
-sudo apt-get update; 
-sudo apt-get install -y apache2;
-sudo systemctl start apache2;
-sudo systemctl enable apache2;
 wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -;
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list;
 apt update -y;
