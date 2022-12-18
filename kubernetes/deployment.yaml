@@ -15,18 +15,14 @@ spec:
     spec:
       containers:
         - name  : wo-app-node
-          image : yevgeniis/wo_app:0.0.3
+          image : yevgeniis/wo_app:0.0.6
           imagePullPolicy: Always
           ports :
             - containerPort: 3000
           resources:
             requests:
               cpu: "250m"
+              memory: "512Mi"
           env:
             - name: MONGODB_ADDRESS
-              value: localhost
-
-        - name  : mongodb
-          image : mongo
-          ports :
-            - containerPort: 27017
+              value: mongodb.xarfa.local
