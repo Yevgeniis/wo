@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name  : wo-app-node
-          image : yevgeniis/wo_app:0.0.5
+          image : yevgeniis/wo_app:0.0.6
           imagePullPolicy: Always
           ports :
             - containerPort: 3000
