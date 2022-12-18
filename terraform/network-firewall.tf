@@ -46,6 +46,6 @@ resource "google_compute_firewall" "allow-mongo" {
         protocol = "tcp"
         ports = ["27017"]       
     } 
-    source_ranges = ["${var.network-subnet-cidr}"] 
+    source_ranges = ["${var.network-subnet-cidr}","${google_container_cluster.gke-cluster.cluster_ipv4_cidr}"] 
     target_tags = ["mongo"]
 }
