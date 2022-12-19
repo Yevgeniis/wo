@@ -22,7 +22,7 @@ metadata:
 spec:
   dnsNames:
     - api.xarfa.com
-  secretName: wo-app-tls
+  secretName: wo-app-tls-secret
   issuerRef:
     name: letsencrypt-cluster-issuer
     kind: ClusterIssuer
