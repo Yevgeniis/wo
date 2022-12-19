@@ -8,7 +8,7 @@ spec:
   tls:
     - hosts:
       - api.xarfa.com
-      secretName: example-tls-cert
+      secretName: wo-app-tls
   ingressClassName: nginx
   rules:
   - host: "api.xarfa.com"
