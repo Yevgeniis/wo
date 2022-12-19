@@ -22,5 +22,5 @@ ENV PORT $DEFAULT_PORT
 EXPOSE $PORT
 
 #Start application
-CMD ["node","nodeapp.js"]
+CMD ["npm","start"]
 
